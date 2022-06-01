@@ -59,10 +59,10 @@ public class TicTacToe {
     public static boolean checkFinalWin(char[][] board) {
         boolean check = false;
         if (checkWin(board) == 1 || checkWinDown(board) == 1 || checkDiagonal(board) == 1 || checkDiagonalRev(board) == 1) {
-            System.out.println("Yay, Wana won! Janis Sucks!");
+            System.out.println("Player Won!");
             check = true;
         } else if (checkWin(board) == 2 || checkWinDown(board) == 2 || checkDiagonal(board) == 2 || checkDiagonalRev(board) == 2) {
-            System.out.println("Yay, Janis won! Wana sucks!");
+            System.out.println("Computer Won!");
             check = true;
         }
         return check;
@@ -70,13 +70,13 @@ public class TicTacToe {
 
     public static int checkWin(char[][] board) {
         int checkWinning = 0;
-        for (int i = 0; i < board.length; i++) {
+        for (char[] chars : board) {
             int xCount = 0;
             int oCount = 0;
-            for (int j = 0; j < board[i].length; j++) {
-                if (board[i][j] == 'X') {
+            for (int j = 0; j < chars.length; j++) {
+                if (chars[j] == 'X') {
                     xCount++;
-                } else if (board[i][j] == 'O') {
+                } else if (chars[j] == 'O') {
                     oCount++;
                 } else {
                     xCount = 0;
